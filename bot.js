@@ -5,6 +5,7 @@
 // @description  Bot for google
 // @author       Sergey Chizhikov
 // @match        https://www.google.com/*
+// @match        https://napli.ru/*
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @grant        none
 // ==/UserScript==
@@ -26,8 +27,12 @@ if (searchBtn !== undefined) {
       searchBtn.click();
     }
   }, 300)
+
+} else if (location.hostname == "napli.ru") {
+  console.log("Мы на целевом сайте");
+}
 //Работаем на странице поисковой выдачи  
-} else {
+else {
   let nextPage = true;
   for (let i = 0; i < links.length; i++) {
     if (links[i].href.indexOf('napli.ru') != -1) {
